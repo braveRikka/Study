@@ -1,0 +1,9 @@
+CC := gcc
+CFLAGS := -Wall -O3 -I../include
+Libs = -lsqlite3
+Target := server
+Source := $(wildcard *.c)
+Objs := $(patsubst %.c,%.o,$(Source))
+Modules += server_main tcp_server server_action tpool database md5 RC4 thread_pool
+AllObjs := $(addsuffix /*.o,$(Modules))
+My_libs := *.so
